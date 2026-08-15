@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Private/licensed font files (Lahzeh-Family) - do not commit to a public repo.
+# Only the README guide in public/fonts stays tracked; the actual font
+# binaries must be shared with the team through a private channel instead.
+public/fonts/*
+!public/fonts/README.md
