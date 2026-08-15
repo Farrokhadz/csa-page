@@ -1,37 +1,73 @@
-/* src/index.css */
 @import "tailwindcss";
 
+/*
+  فونت اختصاصی انجمن: یک Variable Font (VF) که همه‌ی وزن‌ها (Thin تا Medium و
+  حالت‌های Semi Stretch طرح فیگما) داخل همین یک فایل هستن. به همین خاطر فقط یک
+  @font-face با بازه‌ی وزن کافیه؛ کلاس‌های font-weight معمولی تیلویند
+  (font-light=300، font-normal=400، font-medium=500 و...) خودکار روی این بازه اعمال می‌شن.
+  فایل از public/fonts (که در .gitignore قایم شده) لود می‌شه، پس در ریپوی عمومی قرار نمی‌گیره.
+*/
 @font-face {
   font-family: "Lahzeh-Family";
   src:
     url("/fonts/Lahzeh-FamilyVF.woff2") format("woff2-variations"),
     url("/fonts/Lahzeh-FamilyVF.woff2") format("woff2");
   font-weight: 100 900;
-  font-stretch: 50% 200%;
   font-style: normal;
   font-display: swap;
 }
+
+/*
+  محورهای غیراستاندارد فونت (STRE = کشیدگی سفارشی، DOTS = نقطه‌دار/بدون‌نقطه).
+  چون این‌ها محور رسمی CSS نیستن، خاصیت font-stretch روشون اثر نمی‌ذاره؛
+  باید با font-variation-settings صداشون بزنیم. مقدار پیش‌فرض STRE=100 (Normal)
+  و برای حالت "Semi Stretch" طرح فیگما مقدار 180 لازمه.
+*/
+.font-stretch-semi {
+  font-variation-settings: "STRE" 180;
+}
+
 @theme {
+  /* --- Background --- */
+  --color-bg-default: #131419;
+  --color-bg-subtle: #1a1c23;
+
+  /* --- Surface (cards/panels) --- */
+  --color-surface-default: #252730; /* used at 20% opacity for glass cards, see .glass-card */
+  --color-surface-raised: #2d303a;
+  --color-surface-subtle: #1a1c23;
+
+  /* --- Text --- */
   --color-text-primary: #f7f9fc;
   --color-text-secondary: #aab1c0;
-  --color-text-muted: #8f97a8;
-  --color-text-nav: #bbc8ff;
-  --color-text-on-accent: #ffffff;
+  --color-text-tertiary: #8f97a8;
+  --color-text-disabled: #686f7d;
+  --color-text-inverse: #131419;
 
-  --color-brand-start: #1d39b0;
-  --color-brand-end: #2e5bff;
-  --color-brand: #2e5bff;
+  /* --- Border --- */
+  --color-border-subtle: #30333d;
+  --color-border-default: #3a3d48;
+  --color-border-strong: #484c59;
 
-  --color-bg-navy-start: #1d39b0;
-  --color-bg-navy-end: #172d89;
-  --color-bg-charcoal-start: #1a1c23;
-  --color-bg-charcoal-end: #131419;
+  /* --- Interactive (buttons, links) --- */
+  --color-interactive-primary: #2e5bff;
+  --color-interactive-primary-hover: #617cff;
+  --color-interactive-primary-pressed: #2448d9;
+  --color-interactive-primary-subtle: #112263;
+  --color-interactive-focus: #617cff;
 
-  --color-card-glass: #252730;
+  /* --- Accent --- */
+  --color-accent-signature: #00e5ff;
 
+  /* --- Brand blue scale (primitive) --- */
+  --color-brand-700: #1d39b0;
+  --color-brand-800: #172d89;
+
+  /* --- Badge pill gradient --- */
   --color-badge-start: #6f7787;
   --color-badge-end: #3f4655;
 
+  /* --- Per-social-link accent glows (one-off, not tokens) --- */
   --color-telegram-start: #8ad7fe;
   --color-telegram-end: #00aaff;
   --color-linkedin-start: #0059ff;
@@ -54,10 +90,20 @@ body,
 
 body {
   font-family: var(--font-lahzeh);
-  background: #131419;
+  background: var(--color-bg-default);
   -webkit-font-smoothing: antialiased;
 }
 
+/* پس‌زمینه‌ی تم مشکی مشترک صفحات: گرادیان ملایم بین bg/default و bg/subtle، بدون هیچ آبی */
+.app-background {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-subtle) 0%,
+    var(--color-bg-default) 100%
+  );
+}
+
+/* افکت شیشه‌ای مشترک برای کارت‌ها، طبق توکن surface/default @ 20% opacity */
 .glass-card {
   background: rgba(37, 39, 48, 0.2);
   backdrop-filter: blur(50px);

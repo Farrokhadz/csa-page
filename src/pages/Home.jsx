@@ -53,13 +53,7 @@ const LINKS = [
 
 export default function Home() {
   return (
-    <main
-      className="relative mx-auto flex min-h-dvh w-full max-w-[402px] flex-col items-center overflow-hidden px-9 pb-10 pt-16"
-      style={{
-        background:
-          "linear-gradient(180deg, #1d39b0 0%, #172d89 40%, #1a1c23 70%, #131419 100%)",
-      }}
-    >
+    <main className="app-background relative mx-auto flex min-h-dvh w-full max-w-[402px] flex-col items-center overflow-hidden px-9 pb-10 pt-16">
       <Header />
       <FeaturedCard />
 
