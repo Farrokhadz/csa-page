@@ -1,111 +1,83 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+/* src/index.css */
+@import "tailwindcss";
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+/*
+  فونت Lahzeh-Family یک فونت اختصاصی/خریداری‌شده است و در دسترس عمومی نیست.
+  فایل‌های وزن‌های مختلف را (woff2) داخل public/fonts بگذار و این بلاک @font-face
+  را برای هر وزن تکرار کن. تا وقتی فایل‌ها اضافه نشدن، فالبک روی Vazirmatn است
+  (از گوگل‌فونت لود می‌شه) تا preview بدون افت خوانایی کار کنه.
+*/
+@font-face {
+  font-family: "Lahzeh-Family";
+  src: url("/fonts/Lahzeh-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lahzeh-Family";
+  src: url("/fonts/Lahzeh-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lahzeh-Family";
+  src: url("/fonts/Lahzeh-Thin.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+@theme {
+  --color-text-primary: #f7f9fc;
+  --color-text-secondary: #aab1c0;
+  --color-text-muted: #8f97a8;
+  --color-text-nav: #bbc8ff;
+  --color-text-on-accent: #ffffff;
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+  --color-brand-start: #1d39b0;
+  --color-brand-end: #2e5bff;
+  --color-brand: #2e5bff;
+
+  --color-bg-navy-start: #1d39b0;
+  --color-bg-navy-end: #172d89;
+  --color-bg-charcoal-start: #1a1c23;
+  --color-bg-charcoal-end: #131419;
+
+  --color-card-glass: #252730;
+
+  --color-badge-start: #6f7787;
+  --color-badge-end: #3f4655;
+
+  --color-telegram-start: #8ad7fe;
+  --color-telegram-end: #00aaff;
+  --color-linkedin-start: #0059ff;
+  --color-linkedin-end: #003699;
+  --color-instagram-start: #fa317b;
+  --color-instagram-end: #c131fa;
+  --color-email-start: #fb413d;
+  --color-email-end: #fe5d90;
+  --color-donate-start: #78ff95;
+  --color-donate-end: #00ff37;
+
+  --font-lahzeh: "Lahzeh-Family", "Vazirmatn", sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
 }
 
 body {
-  margin: 0;
+  font-family: var(--font-lahzeh);
+  background: #131419;
+  -webkit-font-smoothing: antialiased;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.glass-card {
+  background: rgba(37, 39, 48, 0.2);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
 }
