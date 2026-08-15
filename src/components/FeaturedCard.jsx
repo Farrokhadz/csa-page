@@ -33,15 +33,17 @@ export default function FeaturedCard() {
           </p>
         </div>
         <div className="relative mt-2 flex justify-start">
-          <a>
-            href="#" className="flex items-center gap-1 rounded-xl px-4 py-1.5
+          <a
+            href="#"
+            className="flex items-center gap-1 rounded-xl px-4 py-1.5
             text-[11px] font-medium text-white
             shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform
-            hover:-translate-y-0.5" style=
-            {{
+            hover:-translate-y-0.5"
+            style={{
               background:
                 "linear-gradient(135deg, var(--color-brand-start), var(--color-brand-end))",
             }}
+          >
             مشارکت کن!
             <PenIcon />
           </a>
