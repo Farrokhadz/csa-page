@@ -1,34 +1,16 @@
 /* src/index.css */
 @import "tailwindcss";
 
-/*
-  فونت Lahzeh-Family یک فونت اختصاصی/خریداری‌شده است و در دسترس عمومی نیست.
-  فایل‌های وزن‌های مختلف را (woff2) داخل public/fonts بگذار و این بلاک @font-face
-  را برای هر وزن تکرار کن. تا وقتی فایل‌ها اضافه نشدن، فالبک روی Vazirmatn است
-  (از گوگل‌فونت لود می‌شه) تا preview بدون افت خوانایی کار کنه.
-*/
 @font-face {
   font-family: "Lahzeh-Family";
-  src: url("/fonts/Lahzeh-Regular.woff2") format("woff2");
-  font-weight: 400;
+  src:
+    url("/fonts/Lahzeh-FamilyVF.woff2") format("woff2-variations"),
+    url("/fonts/Lahzeh-FamilyVF.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 50% 200%;
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Lahzeh-Family";
-  src: url("/fonts/Lahzeh-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Lahzeh-Family";
-  src: url("/fonts/Lahzeh-Thin.woff2") format("woff2");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme {
   --color-text-primary: #f7f9fc;
   --color-text-secondary: #aab1c0;
