@@ -17,7 +17,7 @@ export default function FeaturedCard() {
       </span>
 
       <div
-        className="relative overflow-hidden rounded-xl px-4 py-4 pr-5"
+        className="relative overflow-hidden rounded-xl pt-4 pr-4 pb-4 pl-5"
         style={{
           background: "rgba(37, 39, 48, 1)",
           backdropFilter: "blur(50px)",
@@ -26,7 +26,9 @@ export default function FeaturedCard() {
         }}
       >
         {/* عکس واقعی پروژه، با ماسک محوکننده‌ی همون فیگما ترکیب شده (mask-image روی خود
-            عکس، نه یه لایه‌ی جدا) - این‌جوری فقط جایی که عکس دیده می‌شه محو/واضح می‌شه */}
+            عکس، نه یه لایه‌ی جدا) - این‌جوری فقط جایی که عکس دیده می‌شه محو/واضح می‌شه.
+            inset-0 نسبت به کل باکس این کارت (330x130) حساب می‌شه، نه فقط ناحیه‌ی پدینگ‌شده،
+            پس عکس دقیقاً هم‌سایز کل کارته، نه کوچیک‌تر. */}
         <img
           src={featuredCardPhoto}
           alt=""
@@ -41,7 +43,9 @@ export default function FeaturedCard() {
             maskRepeat: "no-repeat",
           }}
         />
-        <div className="relative flex flex-col items-center gap-2 pt-2 text-center">
+        {/* بلوک متن: طبق مختصات دقیق فیگما (Frame 25: عرض 199px، از x=115 که با پدینگ
+            چپ کارت 95px فاصله می‌گیره) - چسبیده به لبه‌ی راست، نه وسط کل کارت */}
+        <div className="relative ml-[95px] w-[199px] pt-2 text-right">
           <h3 className="font-stretch-semi text-[15px] font-medium leading-[25px] text-[#f7f9fc]">
             پروژهٔ دستخط
           </h3>
