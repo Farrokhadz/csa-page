@@ -89,7 +89,7 @@ export default function Home() {
         </div>
 
         {/* فاصله‌ی کارت حمایت مالی تا فوتر هم ۳۲px هست، نه ۴۰px */}
-        <footer className="mt-8 text-center text-[10px] font-medium leading-[25px] text-[--color-text-tertiary]">
+        <footer className="mt-8 text-center text-[10px] font-medium leading-[25px] text-[#aab1c0]">
           طراحی شده توسط انجمن علمی علوم کامپیوتر دانشگاه رازی
         </footer>
       </div>
