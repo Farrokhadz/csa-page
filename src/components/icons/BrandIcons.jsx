@@ -1,11 +1,12 @@
-// src/components/icons/BrandIcons.jsx
 import telegramIcon from "../../assets/icons/telegram.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
 import instagramIcon from "../../assets/icons/instagram.svg";
 import emailIcon from "../../assets/icons/email.svg";
 import giftIcon from "../../assets/icons/gift.svg";
 
-const common = { width: 20, height: 20, "aria-hidden": true };
+// سایز 32x32 دقیقاً طبق فریم داخلی آیکون‌ها توی دامپ فیگما
+// (مثلاً "Telegram size=32x32 pos=(4,4)" داخل اسلات 40x40)
+const common = { width: 32, height: 32, "aria-hidden": true };
 
 export function TelegramIcon() {
   return <img src={telegramIcon} alt="" {...common} />;
